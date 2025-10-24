@@ -38,6 +38,10 @@ Works great with [BorgBase.com](https://www.borgbase.com) - Simple and Secure Ho
       - name: users
         hostname: database1.example.org
         port: 5433
+    healthchecks:
+      ping_url: https://hc-ping.com/8sdfdf6d961
+    report_email: sebastian.noe@chordis.de
+    report_sender: "Borg Backup <borg@chordis.de>"
 ```
 
 ## Example playbook with service user and Systemd timer
@@ -121,7 +125,9 @@ $ git clone https://github.com/borgbase/ansible-role-borgbackup.git roles/ansibl
 
 - `borg_user`: Name of the User to create Backups (service account)
 - `borg_group`: Name of the Group to create Backups (service account)
-
+- `healthchecks.ping_url`: URL to Monitor Backup `healthchecks.io`
+- `report_email`: Email Recipient for Backup Reports
+- `sender_email`: Sender `From:` for Email Reports
 
 ## Contributing
 
