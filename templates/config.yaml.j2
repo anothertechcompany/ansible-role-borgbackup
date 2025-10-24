@@ -188,3 +188,14 @@ hooks:
     {{ hook }}:
 {{ borgmatic_hooks[hook] | to_nice_yaml(indent=4) | indent(8, first=true) }}
 {% endfor %}
+
+
+{% if healthchecks.ping_url is defined %}
+# Healthchecks ping URL or UUID to notify when a backup
+# begins, ends, or errors. Create an account at
+# https://healthchecks.io if you'd like to use this service.
+# See borgmatic monitoring documentation for details.
+  
+healthchecks: 
+    ping_url: {{ healthchecks.ping_url }}
+{% endif %}
